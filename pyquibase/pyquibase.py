@@ -47,7 +47,7 @@ class Pyquibase(object):
             'password'        : password,
             'change_log_file' : change_log_file,
             'log_level'       : log_level,
-            'database'        : 'mysql'
+            'database'        : 'postgresql'
         }
 
         return cls(config)
