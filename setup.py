@@ -16,6 +16,7 @@ setup(
         'pyquibase' : [
             'db-connectors/sqlite-jdbc-3.18.0.jar',
             'db-connectors/mysql-connector-java-5.1.42-bin.jar',
+            'db-connectors/postgresql-42.1.3.jar',
             'liquibase/liquibase.jar'
     ]},
     zip_safe=False,
