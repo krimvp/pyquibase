@@ -7,7 +7,7 @@ setup(
     author           = 'Eun Woo Song',
     author_email     = 'songew@gmail.com',
     url              = 'https://github.com/rampart81/pyquibase',
-    download_url     = 'https://githur.com/rampart81/pyquibase/archive/1.1.tar.gz',
+    download_url     = 'https://github.com/rampart81/pyquibase/archive',
     install_requires = [ ],
     packages         = find_packages(exclude = ['docs', 'tests*']),
     keywords         = ['liquibase', 'db migration'],
