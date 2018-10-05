@@ -19,11 +19,6 @@ import sqlite3
 from pyquibase.pyquibase import Pyquibase
 
 class TestPyquibase(unittest.TestCase):
-    def setUp(self):
-        self.pyquibase = Pyquibase.sqlite(
-            'testdb.sqlite', 
-            os.path.join(os.path.dirname(__file__), 'db-changelog-1.xml')
-        )
 
     def tearDown(self):
         """
@@ -31,7 +26,29 @@ class TestPyquibase(unittest.TestCase):
         """
         os.remove("testdb.sqlite")
 
-    def test_liquibase_update(self):
+    def test_liquibase_update_xml(self):
+        self.pyquibase = Pyquibase.sqlite(
+            'testdb.sqlite',
+            os.path.join(os.path.dirname(__file__), 'db-changelog-1.xml')
+        )
+
+        # run liquibase update
+        self.pyquibase.update()
+
+        # verify that liquibase has been executed properly by
+        # executing sql queries
+        con = sqlite3.connect('testdb.sqlite')
+        con.execute("INSERT INTO test VALUES (1, 'test')")
+        actual = con.execute('SELECT * FROM test').fetchall()
+        expected = [(1, 'test')]
+
+        self.assertListEqual(actual, expected)
+
+    def test_liquibase_update_yml(self):
+        self.pyquibase = Pyquibase.sqlite(
+            'testdb.sqlite',
+            os.path.join(os.path.dirname(__file__), 'db-changelog-1.yaml')
+        )
         # run liquibase update
         self.pyquibase.update()
 

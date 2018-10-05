@@ -7,7 +7,7 @@ setup(
     author           = 'Eun Woo Song',
     author_email     = 'songew@gmail.com',
     url              = 'https://github.com/rampart81/pyquibase',
-    download_url     = 'https://githur.com/rampart81/pyquibase/archive/1.2.tar.gz',
+    download_url     = 'https://github.com/rampart81/pyquibase/archive/1.2.tar.gz',
     install_requires = [ ],
     packages         = find_packages(exclude = ['docs', 'tests*']),
     keywords         = ['liquibase', 'db migration'],
@@ -17,8 +17,10 @@ setup(
             'db-connectors/sqlite-jdbc-3.18.0.jar',
             'db-connectors/mysql-connector-java-5.1.42-bin.jar',
             'db-connectors/postgresql-42.1.3.jar',
-            'liquibase/liquibase.jar'
-    ]},
+            'liquibase/liquibase.jar',
+            'liquibase/lib/snakeyaml-1.13.jar'
+
+        ]},
     zip_safe=False,
     classifiers      = [
         'Programming Language :: Python :: 3',
